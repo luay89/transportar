@@ -381,7 +381,7 @@
           '<div class="camp-stats"><div><small>' + t('qrScans') + '</small><b>' + s.scans + '</b></div><div><small>' + t('bookings') + '</small><b>' + s.bookings + '</b></div><div><small>' + t('conversion') + '</small><b>' + (s.conv != null ? s.conv + '%' : '—') + '</b></div><div><small>' + t('revenue') + '</small><b>' + App.money(s.revenue) + '</b></div></div>' +
           '<input class="mono url" readonly value="' + esc(url) + '" aria-label="' + esc(t('link')) + '">' +
           '<div class="row"><button class="btn sm" data-copyurl="' + esc(url) + '">' + t('copyLink') + '</button>' +
-            (App.API.mode === 'server' ? '<button class="btn sm" data-dl="card" data-c="' + esc(c.id) + '">' + t('dlCard') + '</button><button class="btn sm" data-dl="sticker" data-c="' + esc(c.id) + '">' + t('dlSticker') + '</button>' : '') +
+            (App.API.mode === 'server' || window.self === window.top ? '<button class="btn sm" data-dl="card" data-c="' + esc(c.id) + '">' + t('dlCard') + '</button><button class="btn sm" data-dl="sticker" data-c="' + esc(c.id) + '">' + t('dlSticker') + '</button>' : '') +
             '<button class="btn sm ghost" data-edit="' + esc(c.id) + '">' + t('edit') + '</button></div></div></article>';
       }).join('') + '</div>' + panel(t('marketingPerf') + ' · ' + t('allTime'), sourceTable(A.an.sources));
     $('#newCamp').onclick = function () { campSheet(null); };
